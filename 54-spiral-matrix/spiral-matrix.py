@@ -29,8 +29,6 @@ class Solution:
         
         while left<=right:
             # move to the right
-            if left>right:
-                break
             for c in range(left, right+1):
                 output.append(matrix[top][c])
             top += 1
