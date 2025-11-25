@@ -29,8 +29,8 @@ class Solution:
                 if freq[c] < 0:
                     return False
 
-        # for k in freq:
-        #     if freq[k] != 0:
-        #         return False
+        for k in freq:
+            if freq[k] != 0:
+                return False
 
         return True
