@@ -1,5 +1,12 @@
 class Solution:
     def reverse(self, x: int) -> int:
+        """
+        max = 50
+        rev = 5
+        dig = 2
+        52
+        48
+        """
         rev = 0
         if x<0:
             sign=-1
@@ -13,9 +20,10 @@ class Solution:
             dig = x % 10
             x //= 10
 
-            if rev > (MAX-dig)//10:
+            if rev * 10 + dig <= MAX:
+                rev = rev*10 + dig
+            else:
                 return 0
-            rev = rev*10 + dig
 
         
         return rev*sign
