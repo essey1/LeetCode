@@ -1,29 +1,31 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         """
-        We can solve this problem by using a stack
-        If we encounter an opening bracket we can push it to stack
-        If we encounter a closing bracet we can check the top of the stack
-        If top is not opening bracket of same type:
-            return false
-        return true at the end if stack is empty which means all parenthesis are valid
-        We can use a hashmap were the openning are key and closing are value
+        Input: s = "([])"
+        check the inner [] and remove it then the outer is easy
+        utilize a stack for LIFO
+        1st itr = open bracket, append to stack check next
+        2nd itr = open bracket, append to stack, check next
+        3rd itr = closed bracket, check if 2nd itr is of same type? 
+                Yes, pop the 2nd itr from the stack
+                No, return false
+            4th itr = closed bracket, check stack[-1], do they match?
+                Yes I pop
+                No, return false
+            return true
         """
-        #Initialize
+
         stack = []
-        pairs = {"{":"}", "[":"]", "(":")"}
+        hashs = {'}':'{', ']':'[', ')':'('}
 
-        # loop and check by utilizing the stack
-        for i in s:
-            if i in pairs:
-                stack.append(i)
+        for c in s:
+            if c == '{' or c == '[' or c == '(':
+                stack.append(c)
             else:
-                if not stack or pairs[stack[-1]] != i:
+                if not stack or hashs[c] != stack[-1]:
                     return False
-                stack.pop()
-
-        # Check if all parentheses are closed
-        if len(stack) == 0:
-            return True
-        else:
+                else:
+                    stack.pop()
+        if stack:
             return False
+        return True
