@@ -23,8 +23,6 @@ class Solution:
 
             r -= 1
             l += 1
-            t += 1
-            b -= 1
         return matrix
             
         
