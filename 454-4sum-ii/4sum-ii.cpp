@@ -2,6 +2,7 @@ class Solution {
 public:
     int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
         unordered_map<int, int> count12;
+        count12.reserve(nums1.size() * nums2.size());
         int s12;
         int s23;
         int count=0;
