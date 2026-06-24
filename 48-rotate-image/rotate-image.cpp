@@ -9,8 +9,9 @@ public:
 
         while (l<r){
             for (int i=0; i<r-l; i++){
-                // bl to tl
                 int temp = matrix[t][l+i];
+
+                // bl to tl
                 matrix[t][l+i] = matrix[b-i][l];
 
                 // br to bl
@@ -19,7 +20,7 @@ public:
                 //tr to br
                 matrix[b][r-i] = matrix[t+i][r];
 
-                
+                //tl to tr
                 matrix[t+i][r] = temp;
 
             }
