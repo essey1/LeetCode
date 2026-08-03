@@ -1,11 +1,5 @@
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        """
-        binary search for predicting min speed
-        loop to see the h it takes for that prediction
-        carry on as long as <=h
-        """
-
         low = 1
         high = max(piles)
         ans = 0
