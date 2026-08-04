@@ -5,16 +5,19 @@ class Solution:
             mid = (l+r)//2
             if target == nums[mid]:
                 return mid
-            # left half normally sorted
+            # left side is sorted
             if nums[mid] > nums[r]:
                 if nums[l] <= target < nums[mid]:
                     r = mid-1
                 else:
-                    l = mid+1
-            # right half normally sorted
+                    l = mid+1 
+            # right side is sorted
             else:
                 if nums[mid] < target <= nums[r]:
                     l = mid+1
                 else:
                     r = mid-1
         return -1
+
+
+            
