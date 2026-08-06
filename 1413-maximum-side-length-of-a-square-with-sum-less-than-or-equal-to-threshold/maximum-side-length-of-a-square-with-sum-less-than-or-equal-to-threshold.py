@@ -18,12 +18,6 @@ class Solution:
             for i in range(mid-1, len(mat)):
                 for j in range(mid-1, len(mat[0])):
                     summ = p_mat[i+1][j+1] + p_mat[i-mid+1][j-mid+1] - p_mat[i-mid+1][j+1] - p_mat[i+1][j-mid+1]
-                    """
-                    0 0 0 0
-                    0 1 2 3
-                    0 1 2 2
-                    0 2 2 2
-                    """
                     if summ <= threshold:
                         valid_square = True
                         break
