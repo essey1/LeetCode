@@ -3,13 +3,11 @@ class Solution:
         output = []
         hm = defaultdict(list)
 
-        for i, s in enumerate(strs):
-            ss = "".join(sorted(s))
-            if ss in hm:
-                hm[ss].append(s)
-            else:
-                hm[ss].append(s)
-        print(hm)
+        for s in (strs):
+            count = [0] * 26
+            for c in s:
+                count[ord(c)-ord("a")] += 1
+            hm[tuple(count)].append(s)          
 
         for k, v in hm.items():
             output.append(v)
