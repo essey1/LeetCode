@@ -1,14 +1,18 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        hashstr = defaultdict(list)
-        for i in strs:
-            count = [0] * 26
-            for j in i:
-                count[ord(j)-ord("a")] += 1
-            hashstr[tuple(count)].append(i)
+        output = []
+        hm = defaultdict(list)
 
-        return list(hashstr.values())
+        for i, s in enumerate(strs):
+            ss = "".join(sorted(s))
+            if ss in hm:
+                hm[ss].append(s)
+            else:
+                hm[ss].append(s)
+        print(hm)
 
-
+        for k, v in hm.items():
+            output.append(v)
+        return output
 
         
